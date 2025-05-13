@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core'
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'
+import { AuthService } from '../../auth/auth.service'
+import { from } from 'rxjs'
+import { map } from 'rxjs/operators'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-page',
@@ -9,13 +12,35 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login-page.component.scss'
 })
 export class LoginPageComponent {
-  form: FormGroup<{username:FormControl, password: FormControl}> = new FormGroup({
-    username: new FormControl(null),
-    password: new FormControl(null)
+  authService = inject(AuthService)
+  router = inject(Router)
+
+  form: FormGroup = new FormGroup({
+    username: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required)
   })
+
+  constructor() {
+    from([1, 2, 3, 4, 5, 6, 7, 8, 9])
+      .pipe(
+        map((val: number) => val * 2)
+
+      ).subscribe(value => {
+        console.log(value)
+      })
+  }
 
   onSubmit(): void {
     console.log(this.form.value)
-  }
 
+    if (this.form.valid) {
+      this.authService.login(this.form.value)
+        .subscribe(() => {
+          this.router.navigate([''])
+        })
+    }
+    else {
+      console.log('Форма не валидна')
+    }
+  }
 }
