@@ -6,3 +6,31 @@
     align-items: center;
     margin: 0 5%;
 }
+
+.login-form {
+    max-width: 440px;
+    width: 100%;
+}
+
+.login-form,
+.big-logo {
+    place-self: center;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-eye-btn {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #FFFFFFBF;
+    cursor: pointer;
+}
+
+.password-eye-btn.active {
+    color: var(--primary-color);
+}

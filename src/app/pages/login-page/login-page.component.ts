@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core'
+import { Component, inject, signal } from '@angular/core'
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from '../../auth/auth.service'
 import { from } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router'
+import { SIGNAL } from '@angular/core/primitives/signals'
 
 @Component({
   selector: 'app-login-page',
@@ -14,6 +15,8 @@ import { Router } from '@angular/router'
 export class LoginPageComponent {
   authService = inject(AuthService)
   router = inject(Router)
+
+  isPasswordVisible = signal<boolean>(false)
 
   form: FormGroup = new FormGroup({
     username: new FormControl(null, Validators.required),
