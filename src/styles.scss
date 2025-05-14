@@ -6,7 +6,7 @@
     --light-color: #FFFFFF;
     --primary-color: #AE7AFF;
     --gray-color: #5F646D;
-    ;
+    --dark-hover-color: #161616;
 }
 
 * {
@@ -22,6 +22,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: center;
+    margin: 0;
 }
 
 .skill-tag {
@@ -79,6 +80,13 @@ body {
     font-size: 14px;
     line-height: 21px;
     font-weight: 400;
+}
+
+.medium-text {
+    font-family: "JetBrains", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
 }
 
 .tt-control-label {
