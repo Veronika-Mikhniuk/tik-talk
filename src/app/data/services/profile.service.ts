@@ -20,15 +20,19 @@ export class ProfileService {
 
   getMe() {
     return this.http.get<Profile>(`${this.baseApiUrl}account/me`)
-    .pipe(
-      tap(res => this.me.set(res))
-    )
+      .pipe(
+        tap(res => this.me.set(res))
+      )
+  }
+
+  getAccount(id: string) {
+    return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`)
   }
 
   getSubscribersShortList() {
     return this.http.get<Pageable<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-    .pipe(
-      map((res: Pageable<Profile>)  => res.items.slice(0,3))
-    )
+      .pipe(
+        map((res: Pageable<Profile>) => res.items.slice(0, 3))
+      )
   }
 }

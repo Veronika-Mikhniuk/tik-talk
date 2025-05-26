@@ -1,0 +1,19 @@
+.profile-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.to-setting-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--dark-color);
+}
+
+.to-setting-btn {
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
