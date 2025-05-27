@@ -1,7 +1,12 @@
+h3 {
+    margin-top: 0;
+}
+
 .profile-page__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 24px 0;
 }
 
 .to-setting-icon {
@@ -16,4 +21,59 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
+}
+
+.profile-page__body {
+    display: grid;
+    grid-gap: 64px;
+    grid-template-columns: 1fr 350px;
+}
+
+.subscribers-wrapper {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.subscriber-avatar-btn {
+    height: 36px;
+
+    img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+}
+
+.to-subscribers-search {
+    border-radius: 50%;
+    background: var(--light-color);
+    width: 14px;
+    height: 14px;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 8px;
+        background: var(--dark-color);
+        top: 50%;
+        left: 50%
+    }
+
+    &:before {
+        transform: translate(-50%, -50%);
+    }
+
+    &:after {
+        transform: translateY(-50%) translateX(-50%) rotate(90deg);
+    }
+}
+
+.stack-wrapper {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
 }
